@@ -8,8 +8,8 @@ img{
   position:relative;
   display: block;
   cursor: pointer;
-  height: 150px;
-  width:150px;
+  height: 250px;
+  width: 250px;
   border:1px solid #000;
   border-radius: 50%;
   margin-left: 600px;
@@ -48,4 +48,44 @@ img{
 #fileInput{
   display: none;
 }
+
+.file-upload{
+  width:150px;
+  margin:auto !important;
+  overflow: hidden;
+  position: relative;
+  padding: 5px;
+}
+
+.file-upload input{
+  position: absolute;
+  height: 130px;
+  width:130px;
+  left:0;
+  top:0;
+  background:transparent;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+
+.file-upload img{
+  height:130px;
+  width:130px;
+  box-shadow: 0 1px 5px #ABABAB;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.file-upload .material-icons{
+  position: absolute;
+  right:9px;
+  bottom: 11px;
+  color:#F28235;
+}
+
+.file-upload span{
+  font-size:46px;
+}
+
 

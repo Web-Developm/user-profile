@@ -1,8 +1,18 @@
-<label class="hoverable" for="fileInput">
+<!--<label class="hoverable" for="fileInput">
   <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'">
-  <div class="hover-text">Choose file</div>
+  <div class="hover-text">upload profile</div>
   <div class="background"></div>
 </label>
 
-<input id="fileInput" type="file" (change)="onselect($event)" accept=".jpg, .jpeg, .png">
+<input id="fileInput" type="file" (change)="onselect($event)" accept="image/*">-->
 
+<div class="upload-profile">
+  <div class="file-upload">
+    <img [src]="imageURL" alt="profile pic">
+    <input #file type="file" name="somename" (change)="fileChange(file.files)">
+  </div>
+
+  <p class="mx-auto text-danger">
+    <span *ngIf="message">{{message}}</span>
+  </p>
+</div>

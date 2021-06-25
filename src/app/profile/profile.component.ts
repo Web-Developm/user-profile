@@ -1,3 +1,4 @@
+import { ReadVarExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,17 +12,43 @@ export class ProfileComponent implements OnInit {
 
   url: any = "";
 
+  public imagePath: any;
+
+  imageURL: any = "../../assets/profile.png";
+
+  public message!: string;
+
   ngOnInit(): void {
   }
 
   onselect(event: any) {
+
     if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
+      let reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
 
       reader.onload = event => {
         this.url = event.target?.result;
       }
+    }
+  }
+
+  fileChange(files: any) {
+    if (files.length === 0)
+      return;
+
+    let mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = "Only images are supported";
+      return;
+    }
+
+    this.message = "";
+    let reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]);;
+    reader.onload = (_event) => {
+      this.imageURL = reader.result;
     }
   }
 
